@@ -62,11 +62,18 @@ RUN $CKAN_HOME/bin/paster make-config ckan ${CKAN_CONFIG}/${CONFIG_FILE}
 
 # Configure apache
 RUN a2dissite 000-default
-RUN echo "Listen 80" > /etc/apache2/ports.conf
+RUN echo "Listen 443" > /etc/apache2/ports.conf
+RUN echo "NameVirtualHost *:443" >> /etc/apache2/ports.conf
 COPY _etc/apache2/apache.wsgi $CKAN_CONFIG/apache.wsgi
 ONBUILD COPY _etc/apache2/apache.wsgi $CKAN_CONFIG/apache.wsgi
 COPY _etc/apache2/apache.conf /etc/apache2/sites-available/ckan_default.conf
 ONBUILD COPY _etc/apache2/apache.conf /etc/apache2/sites-available/ckan_default.conf
+
+#COPY KEYS
+COPY _etc/keys/server.crt _etc/keys/server.key $CKAN_CONFIG/
+ONBUILD COPY _etc/keys/server.crt _etc/keys/server.key $CKAN_CONFIG/
+
+RUN a2enmod ssl
 RUN a2ensite ckan_default
 
 # Configure postfix
@@ -91,7 +98,7 @@ ADD docker/ckan/svc/ /etc/service/
 CMD ["/sbin/my_init"]
 
 VOLUME ["/usr/lib/ckan", "/var/lib/ckan", "/etc/ckan"]
-EXPOSE 80
+EXPOSE 443
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
