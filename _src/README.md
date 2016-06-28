@@ -12,11 +12,12 @@ The least you need is CKAN itself
 Clone CKAN:
 
 	git clone https://github.com/ckan/ckan.git
-
+	git checkout ckan-2.5.2
 ## Extensions
 
 Clone them here as well
-
+	git clone https://github.com/pwr-inf/ckanext-oauth2-1.git
+	git clone https://github.com/okfn/ckanext-stats.git
 ## Dependencies
 
 Pip requirements are installed when the image is built.
