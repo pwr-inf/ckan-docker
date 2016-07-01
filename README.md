@@ -162,10 +162,7 @@ Defines the set of services required to run CKAN. Read the [docker-compose.yml r
 ---
 # Usage
 
-1. Clone your code in the `_src` directory (see _src/README)
-2. Clone the datapusher in `_service-provider` (see _service-provider/README)
-3. Set the full path of the volumes in docker-compose.yml
-4. Run `up` with Docker-compose or Vagrant
+1. Run `up` with Docker-compose or Vagrant
 
 
 ## Using Docker-compose (recommended)
