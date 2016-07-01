@@ -1,0 +1,12 @@
+[submodule "_src/ckan"]
+	path = _src/ckan
+	url = https://github.com/pwr-inf/ckan.git
+[submodule "_src/ckanext-oauth2-1"]
+	path = _src/ckanext-oauth2-1
+	url = https://github.com/pwr-inf/ckanext-oauth2-1.git
+[submodule "_src/ckanext-stats"]
+	path = _src/ckanext-stats
+	url = https://github.com/okfn/ckanext-stats.git
+[submodule "_service-provider/_datapusher/datapusher"]
+	path = _service-provider/_datapusher/datapusher
+	url = https://github.com/ckan/datapusher.git

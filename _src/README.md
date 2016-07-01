@@ -11,7 +11,7 @@ The least you need is CKAN itself
 
 Clone CKAN:
 
-	git clone https://github.com/ckan/ckan.git
+	git clone https://github.com/pwr-inf/ckan.git
 	git checkout ckan-2.5.2
 ## Extensions
 
