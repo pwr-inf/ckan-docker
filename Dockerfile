@@ -70,10 +70,6 @@ ONBUILD COPY _etc/apache2/apache.wsgi $CKAN_CONFIG/apache.wsgi
 COPY _etc/apache2/apache.conf /etc/apache2/sites-available/ckan_default.conf
 ONBUILD COPY _etc/apache2/apache.conf /etc/apache2/sites-available/ckan_default.conf
 
-#COPY KEYS
-COPY _etc/keys/server.crt _etc/keys/server.key $CKAN_CONFIG/
-ONBUILD COPY _etc/keys/server.crt _etc/keys/server.key $CKAN_CONFIG/
-
 RUN a2enmod ssl
 RUN a2ensite ckan_default
 
