@@ -2,6 +2,7 @@ data:
   build: docker/data
   hostname: data
   domainname: localdomain
+  restart: always
 
 postgres:
   build: docker/postgres
@@ -12,6 +13,7 @@ postgres:
   environment:
     - CKAN_PASS=ckan_pass
     - DATASTORE_PASS=datastore_pass
+  restart: always
 
 solr:
   build: docker/solr
@@ -19,11 +21,13 @@ solr:
   domainname: localdomain
   volumes:
     - ./_src/ckan/ckan/config/solr/schema.xml:/opt/solr/example/solr/ckan/conf/schema.xml
+  restart: always
 
 datapusher:
   build: _service-provider/_datapusher
   hostname: datapusher
   domainname: localdomain
+  restart: always
 
 ckan:
   build: .
@@ -42,4 +46,5 @@ ckan:
     - ./_src:/usr/lib/ckan/default/src
     - ./_etc/ckan/custom_options.ini:/etc/ckan/default/custom_options.ini
     - ./_etc/supervisor/conf.d:/etc/supervisor/conf.d
+  restart: always
   
